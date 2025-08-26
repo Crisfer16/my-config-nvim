@@ -4,5 +4,5 @@ vim.o.number = true
 -- vim.o.relativenumber = true
 vim.o.termguicolors = true
 
--- carga de plugins 
+-- cargamos el modulo de lazy 
 require ("base.plugins.lazy")
