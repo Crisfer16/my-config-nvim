@@ -8,6 +8,15 @@ return {
       return require("configs.telescope")
     end,
   },
+
+	{
+		"nvim-lualine/lualine.nvim",
+   		dependencies = {"nvim-tree/nvim-web-devicons"},
+		opts = function()
+		end,
+	},
+
+
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate", "MasonUninstallAll" },
