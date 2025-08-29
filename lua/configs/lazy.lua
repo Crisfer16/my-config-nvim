@@ -9,12 +9,12 @@ return {
     end,
   },
 
-	{
-		"nvim-lualine/lualine.nvim",
-   		dependencies = {"nvim-tree/nvim-web-devicons"},
-		opts = function()
-		end,
-	},
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {"nvim-tree/nvim-web-devicons"},
+    opts = function()
+    end,
+  },
 
 
   {
@@ -30,17 +30,17 @@ return {
 
   {
     "nvim-tree/nvim-tree.lua",
-     version = "*",
-     lazy = false,
-     dependencies = {
-     "nvim-tree/nvim-web-devicons",
-     },
-     opts = function()
-	return require("configs.nvimtree")
-     end,
-     config = function(_, opts)
-        require("nvim-tree").setup(opts)
-     end,
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = function()
+      return require("configs.nvimtree")
+    end,
+    config = function(_, opts)
+      require("nvim-tree").setup(opts)
+    end,
   },
  
 }
