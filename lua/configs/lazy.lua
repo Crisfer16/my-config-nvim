@@ -42,5 +42,13 @@ return {
       require("nvim-tree").setup(opts)
     end,
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("configs.treesitter")
+    end,
+  }
  
 }
