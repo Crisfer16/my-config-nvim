@@ -12,7 +12,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
-    opts = function()
+    opts = function() 
     end,
   },
 
@@ -20,6 +20,13 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate", "MasonUninstallAll" },
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = { "mfussenegger/nvim-dap" },
+      },
+    },
     opts = function()
       return require("configs.mason")
     end,
@@ -49,6 +56,15 @@ return {
     config = function()
       require("configs.treesitter")
     end,
-  }
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = function ()
+      return require("configs.blankline")
+    end,
+  },
  
 }
