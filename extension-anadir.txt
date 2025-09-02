@@ -1,7 +1,7 @@
 Extensiones que quedan por añadir
 
 cmp - ver su funcionamiento
-formating - queda por añadir
+Lista -formating - queda por añadir
 gitsings - consultar su funcionamiento
 
 

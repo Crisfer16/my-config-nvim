@@ -8,14 +8,25 @@ require("mason-lspconfig").setup({
   },
   automatic_installation = true,
 })
-print("Bloque LSP leido por NeoVim")
+-- print("Bloque LSP leido por NeoVim")
 
 -- Configuracion DAP (declaramos los debuger que necesitamos)
 require("mason-nvim-dap").setup({
-  ensrure_installed = {
+  ensure_installed = {
     
   },
   automatic_installation = false,
 })
-print("Bloque LSP leido por NeoVim")
+-- print("Bloque LSP leido por NeoVim")
+
+-- Configuracion de Formatters (declaramos los Formatters que necesitamos)
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "stylua",
+    "shfmt",
+    "shellharden",
+  },
+  run_on_start = true,
+  auto_update = false,
+})
 
