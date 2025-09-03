@@ -1,0 +1,33 @@
+-- Config fichero lspconfig.lua
+ 
+local lspconfig = require("lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
+
+-- Integramos la extension CMP (mas tarde)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+-- Funcion para adjuntar un LSP a un buffer
+
+local on_attach = function(client, bufnr)
+  -- mostramos un print para verificar que el LSP esta funcionando
+  print ("LSP funcionando correctamente:" client.name )
+end
+
+local default_config = {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+mason_lsponfig.setup_handlers({
+
+  --Handler general (para cualquier LSP que instalemos)
+  function(server_name)
+    lspconfig[server_name].setup(default_config)
+  end,
+
+  -- config para bashls
+  ["bashls"] = function()
+    lspconfig.bashls.setup(default_config)
+  end,
+
+})

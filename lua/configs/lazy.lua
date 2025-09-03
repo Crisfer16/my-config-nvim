@@ -25,12 +25,15 @@ return {
 				"jay-babu/mason-nvim-dap.nvim",
 				dependencies = { "mfussenegger/nvim-dap" },
 			},
+			-- cargar los modulos de lsp.
+			"neovim/nvim-lspconfig",
 		},
 		opts = function()
 			return require("configs.mason")
 		end,
 		config = function(_, opts)
 			require("mason").setup(opts)
+			require("configs.lspconfig")
 		end,
 	},
 
