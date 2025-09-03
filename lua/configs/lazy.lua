@@ -17,7 +17,7 @@ return {
 
 	{
 		"williamboman/mason.nvim",
-		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate", "MasonUninstallAll" },
+		--cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate", "MasonUninstallAll" },
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -25,14 +25,22 @@ return {
 				"jay-babu/mason-nvim-dap.nvim",
 				dependencies = { "mfussenegger/nvim-dap" },
 			},
-			-- cargar los modulos de lsp.
-			"neovim/nvim-lspconfig",
 		},
 		opts = function()
 			return require("configs.mason")
 		end,
 		config = function(_, opts)
 			require("mason").setup(opts)
+		end,
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+		},
+		config = function()
 			require("configs.lspconfig")
 		end,
 	},

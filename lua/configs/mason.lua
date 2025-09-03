@@ -7,11 +7,6 @@ require("mason-lspconfig").setup({
 		"bashls",
 		"lua_ls",
 	},
-	handlers = {
-		function(server_name)
-			require("lspconfig")[server_name].setup({})
-		end,
-	},
 	automatic_installation = true,
 })
 -- print("Bloque LSP leido por NeoVim")
