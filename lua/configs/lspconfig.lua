@@ -4,7 +4,7 @@ local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
 -- Integramos la extension CMP (quitar el comentario cuando la tengamos configurada)
---local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Funcion para adjuntar un LSP a un buffer
 local on_attach = function(client, bufnr)
@@ -14,7 +14,7 @@ end
 
 local default_config = {
 	on_attach = on_attach,
-	--capabilities = capabilities,
+	capabilities = capabilities,
 }
 
 local servers = {
