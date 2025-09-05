@@ -4,5 +4,13 @@ vim.o.number = true
 -- vim.o.relativenumber = true
 vim.o.termguicolors = true
 
--- cargamos el modulo de lazy 
-require ("base.plugins.lazy")
+-- deshabilitamos para que no herede el comentario en la siguiente línea
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+	end,
+})
+
+-- cargamos el modulo de lazy
+require("base.plugins.lazy")
