@@ -113,4 +113,25 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
+
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		lazy = false,
+		config = function()
+			-- hemos tenido que poner () para poder hacer que se ejecute por lazy.
+			require("configs.bufferline")()
+		end,
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("configs.autopairs")
+		end,
+	},
 }
