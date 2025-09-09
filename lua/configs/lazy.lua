@@ -134,4 +134,12 @@ return {
 			require("configs.autopairs")
 		end,
 	},
+
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("configs.whichkey")
+		end,
+	},
 }
