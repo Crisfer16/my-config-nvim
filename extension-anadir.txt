@@ -1,7 +1,0 @@
-Extensiones que quedan por añadir
-
-cmp - ver su funcionamiento
-Lista -formating 
-gitsings - consultar su funcionamiento
-
-

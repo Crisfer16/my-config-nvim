@@ -1,0 +1,25 @@
+Extensiones que quedan por añadir
+
+cmp - ver su funcionamiento
+Lista -formating 
+gitsings - consultar su funcionamiento
+
+
+-----
+
+modificación para los mapping.
+
+Extensiones para consultar para como remplazarla a nuestra configuración:
+
+Extensión (nvchad.tubfline) - movimiento de buffer ficheros adelante y atrás
+
+para hacerlo funcionat con nuestra solución bufferline 
+
+las líneas:
+
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", ":bprev<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
+
+Extensión ()
+
