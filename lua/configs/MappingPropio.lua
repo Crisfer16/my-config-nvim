@@ -18,7 +18,7 @@ map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
+--map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 -- map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
 
 map({ "n", "x" }, "<leader>fm", function()
@@ -28,20 +28,11 @@ end, { desc = "general format file" })
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
--- tabufline (modificar lineas por nuestra herramienta por la de bufferline)
+-- bufferline(Extension modificado a bufferline)
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
-
-map("n", "<tab>", function()
-	require("nvchad.tabufline").next()
-end, { desc = "buffer goto next" })
-
-map("n", "<S-tab>", function()
-	require("nvchad.tabufline").prev()
-end, { desc = "buffer goto prev" })
-
-map("n", "<leader>x", function()
-	require("nvchad.tabufline").close_buffer()
-end, { desc = "buffer close" })
+map("n", "<Tab>", ":<cmd>bnext<CR>", { desc = "Next buffer" })
+map("n", "<S-Tab>", ":<cmd>bprev<CR>", { desc = "Previous buffer" })
+map("n", "<leader>x", ":<cmd>bd<CR>", { desc = "Close buffer" })
 
 -- nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
@@ -70,26 +61,21 @@ map(
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
-map("n", "<leader>h", function()
-	require("nvchad.term").new({ pos = "sp" })
+map("n", "<leader>th", function()
+	vim.cmd("vsplit | terminal")
 end, { desc = "terminal new horizontal term" })
 
-map("n", "<leader>v", function()
-	require("nvchad.term").new({ pos = "vsp" })
+map("n", "<leader>tv", function()
+	vim.cmd("split | terminal")
 end, { desc = "terminal new vertical term" })
 
--- toggleable
-map({ "n", "t" }, "<A-v>", function()
-	require("nvchad.term").toggle({ pos = "vsp", id = "vtoggleTerm" })
-end, { desc = "terminal toggleable vertical term" })
+-- resize windows (heigth)
+map("n", "<C-Up>", ":resize +2<CR>", { desc = "increase heigth" })
+map("n", "<C-Down>", ":resize -2<CR>", { desc = "reduce heigth" })
 
-map({ "n", "t" }, "<A-h>", function()
-	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm" })
-end, { desc = "terminal toggleable horizontal term" })
-
-map({ "n", "t" }, "<A-i>", function()
-	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
-end, { desc = "terminal toggle floating term" })
+-- resize windows (width)
+map("n", "<C-Left>", ":vertical resize +2<CR>", { desc = "increase width" })
+map("n", "<C-Right>", ":vertical resize -2<CR>", { desc = "reduce width" })
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })

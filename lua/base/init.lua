@@ -14,3 +14,5 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- cargamos el modulo de lazy
 require("base.plugins.lazy")
+-- cargamos los keymaps personalizados
+require("configs.MappingPropio")

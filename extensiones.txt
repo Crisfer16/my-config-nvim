@@ -23,7 +23,14 @@ vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
 
 Extensión (nvchad-term):
 
-para que se utiliza: es utilizada para poder abrir termianles dentro neovim con la configuracion propia de nvchad, para poder utilizar algo parecido tenemos que buscar una alternativa.
+para que se utiliza: es utilizada para poder abrir termianles dentro neovim con la configuracion propia de nvchad.
 
+	para poder adaptarlo a nuestra configuración lo podemos poner con estas líneas
 
+	vim.keymap.set("n", "<leader>tv", function()
+	  vim.cmd("vsplit | terminal")
+	end, { desc = "Terminal vertical" })
 
+	vim.keymap.set("n", "<leader>th", function()
+	  vim.cmd("split | terminal")
+	end, { desc = "Terminal horizontal" })
