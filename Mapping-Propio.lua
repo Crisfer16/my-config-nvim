@@ -28,7 +28,7 @@ end, { desc = "general format file" })
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
--- tabufline (modificar lineas por nuestra herramienta)
+-- tabufline (modificar lineas por nuestra herramienta por la de bufferline)
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 
 map("n", "<tab>", function()

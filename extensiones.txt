@@ -9,11 +9,11 @@ gitsings - consultar su funcionamiento
 
 modificación para los mapping.
 
-Extensiones para consultar para como remplazarla a nuestra configuración:
+Extensiones para consultar o para como remplazarla a nuestra configuración:
 
 Extensión (nvchad.tubfline) - movimiento de buffer ficheros adelante y atrás
 
-para hacerlo funcionat con nuestra solución bufferline 
+modificar extension de nvchad.tunfline por bufferline.
 
 las líneas:
 
@@ -21,5 +21,9 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
 
-Extensión ()
+Extensión (nvchad-term):
+
+para que se utiliza: es utilizada para poder abrir termianles dentro neovim con la configuracion propia de nvchad, para poder utilizar algo parecido tenemos que buscar una alternativa.
+
+
 
