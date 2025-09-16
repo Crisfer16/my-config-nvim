@@ -1,4 +1,6 @@
 local map = vim.keymap.set
+-- definimos vim.g.mapleader para tener las keymaps <leader>
+vim.g.mapleader = " "
 
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
@@ -30,9 +32,9 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic locli
 
 -- bufferline(Extension modificado a bufferline)
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
-map("n", "<Tab>", ":<cmd>bnext<CR>", { desc = "Next buffer" })
-map("n", "<S-Tab>", ":<cmd>bprev<CR>", { desc = "Previous buffer" })
-map("n", "<leader>x", ":<cmd>bd<CR>", { desc = "Close buffer" })
+map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
+map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Previous buffer" })
+map("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close buffer" })
 
 -- nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
@@ -62,11 +64,11 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
 map("n", "<leader>th", function()
-	vim.cmd("vsplit | terminal")
+	vim.cmd("split | terminal")
 end, { desc = "terminal new horizontal term" })
 
 map("n", "<leader>tv", function()
-	vim.cmd("split | terminal")
+	vim.cmd("vsplit | terminal")
 end, { desc = "terminal new vertical term" })
 
 -- resize windows (heigth)
