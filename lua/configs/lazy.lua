@@ -142,4 +142,19 @@ return {
 			require("configs.whichkey")
 		end,
 	},
+	-- themes
+	{
+		"everviolet/nvim",
+		priority = 1000,
+		lazy = false,
+		config = function()
+			require("evergarden").setup({
+				theme = {
+					variant = "fall",
+					accent = "lavander",
+				},
+			})
+			vim.cmd("colorscheme evergarden")
+		end,
+	},
 }

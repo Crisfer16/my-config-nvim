@@ -12,6 +12,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- configuración para utilizar clipboard
+vim.api.nvim_set_option("clipboard", "unnamedplus")
+
 -- cargamos el modulo de lazy
 require("base.plugins.lazy")
 -- cargamos los keymaps personalizados
