@@ -6,6 +6,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"bashls",
 		"lua_ls",
+		"pyright",
 	},
 	automatic_installation = true,
 })
@@ -13,8 +14,10 @@ require("mason-lspconfig").setup({
 
 -- Configuracion DAP (declaramos los debuger que necesitamos)
 require("mason-nvim-dap").setup({
-	ensure_installed = {},
-	automatic_installation = false,
+	ensure_installed = {
+		"debugpy",
+	},
+	automatic_installation = true,
 })
 -- print("Bloque LSP leido por NeoVim")
 
@@ -24,6 +27,7 @@ require("mason-tool-installer").setup({
 		"stylua",
 		"shfmt",
 		"shellharden",
+		"black",
 	},
 	run_on_start = true,
 	auto_update = false,

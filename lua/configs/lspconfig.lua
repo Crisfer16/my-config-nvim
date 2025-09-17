@@ -20,6 +20,13 @@ local default_config = {
 local servers = {
 	bashls = { filetypes = { "sh", "bash" } },
 	lua_ls = { settings = { Lua = { diagnostics = { globals = { "vim" } } } } },
+	pyright = {
+		settings = {
+			python = {
+				analysis = { typeCheckingMode = "strict", autoSearchPaths = true, useLibraryCodeForTypes = true },
+			},
+		},
+	},
 	-- aqui pondremos mas config de lsp personalizadas
 }
 
