@@ -142,19 +142,13 @@ return {
 			require("configs.whichkey")
 		end,
 	},
+
 	-- themes
 	{
-		"everviolet/nvim",
-		priority = 1000,
+		"AlphaTechnolog/pywal.nvim",
 		lazy = false,
 		config = function()
-			require("evergarden").setup({
-				theme = {
-					variant = "fall",
-					accent = "lavander",
-				},
-			})
-			vim.cmd("colorscheme evergarden")
+		require("pywal").setup()
 		end,
 	},
 }
