@@ -4,6 +4,11 @@ vim.o.number = true
 -- vim.o.relativenumber = true
 vim.o.termguicolors = true
 
+-- ajuste de tiempo de inicio de extensiones (ejemplo: whickey)
+vim.o.timeout = true
+vim.o.timeoutlen = 100
+vim.o.ttimeoutlen = 50
+
 -- deshabilitamos para que no herede el comentario en la siguiente línea
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
@@ -11,7 +16,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
 	end,
 })
-
 -- configuración para utilizar clipboard
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 

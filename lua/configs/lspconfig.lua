@@ -30,8 +30,13 @@ local servers = {
 	-- aqui pondremos mas config de lsp personalizadas
 }
 
+-- lista de herramientas que no son lsp.
+local ignore = { stylua = true }
+
 -- recorremos todos los LSP istalados y configurados.
 for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
-	local opts = vim.tbl_deep_extend("force", default_config, servers[server] or {})
-	lspconfig[server].setup(opts)
+	if not ignore[server] then
+		local opts = vim.tbl_deep_extend("force", default_config, servers[server] or {})
+		lspconfig[server].setup(opts)
+	end
 end

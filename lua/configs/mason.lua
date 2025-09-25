@@ -18,6 +18,7 @@ require("mason-nvim-dap").setup({
 		"debugpy",
 	},
 	automatic_installation = true,
+	-- por ahora no utilizaremos dap
 })
 -- print("Bloque LSP leido por NeoVim")
 

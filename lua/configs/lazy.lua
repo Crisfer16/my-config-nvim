@@ -35,12 +35,31 @@ return {
 	},
 
 	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("configs.dap")
+		end,
+	},
+
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap" },
+	},
+
+	{
+		"mfussenegger/nvim-dap-python",
+		dependencies = { "mfussenegger/nvim-dap" },
+	},
+
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 		config = function()
+			require("mason-lspconfig").setup()
+			-- aseguramos que mason y mason-lspconfig esten cargados
 			require("configs.lspconfig")
 		end,
 	},

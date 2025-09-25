@@ -79,6 +79,97 @@ map("n", "<C-Down>", ":resize -2<CR>", { desc = "reduce heigth" })
 map("n", "<C-Left>", ":vertical resize +2<CR>", { desc = "increase width" })
 map("n", "<C-Right>", ":vertical resize -2<CR>", { desc = "reduce width" })
 
+-- DAP mapping
+-- sesiones y control
+map("n", "<F5>", function()
+	require("dap").continue()
+end, { desc = "DAP continue / start" })
+map("n", "<F10>", function()
+	require("dap").step_over()
+end, { desc = "DAP step over" })
+map("n", "<F11>", function()
+	require("dap").step_into()
+end, { desc = "DAP step into" })
+map("n", "<F12>", function()
+	require("dap").step_out()
+end, { desc = "DAP step out" })
+
+-- breakpoints
+map("n", "<F9>", function()
+	require("dap").toggle_breakpoint()
+end, { desc = "DAP toggle breakpoint" })
+map("n", "<leader>db", function()
+	require("dap").toggle_breakpoint()
+end, { desc = "DAP toggle breakpoint" })
+map("n", "<leader>dc", function()
+	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, { desc = "DAP conditional breakpoint" })
+map("n", "<leader>dl", function()
+	require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+end, { desc = "DAP logpoint" })
+
+-- repl / run last / pause / attach
+map("n", "<leader>dr", function()
+	require("dap").repl.open()
+end, { desc = "DAP open REPL" })
+map("n", "<leader>rl", function()
+	require("dap").run_last()
+end, { desc = "DAP run last" })
+map("n", "<leader>dp", function()
+	require("dap").pause()
+end, { desc = "DAP pause" })
+map("n", "<leader>da", function()
+	require("dap").run({ type = "python", request = "attach", processId = require("dap.utils").pick_process })
+end, { desc = "DAP attach to process" })
+
+-- dap-ui helpers (con fallback si no está instalado)
+map("n", "<leader>du", function()
+	local ok, dapui = pcall(require, "dapui")
+	if ok then
+		dapui.toggle()
+	else
+		vim.notify("dapui not available", vim.log.levels.WARN)
+	end
+end, { desc = "DAP UI toggle" })
+
+map("n", "<leader>dv", function()
+	local ok, dapui = pcall(require, "dapui")
+	if ok then
+		dapui.float_element("scopes", { enter = true })
+	else
+		vim.notify("dapui not available", vim.log.levels.WARN)
+	end
+end, { desc = "DAP UI scopes float" })
+
+map("n", "<leader>dx", function()
+	local ok, dapui = pcall(require, "dapui")
+	if ok then
+		dapui.float_element("stacks", { enter = true })
+	else
+		vim.notify("dapui not available", vim.log.levels.WARN)
+	end
+end, { desc = "DAP UI stacks float" })
+
+-- ejecutar pytest o fallback a run current file
+map("n", "<leader>dt", function()
+	local ok, dap = pcall(require, "dap")
+	if not ok then
+		vim.notify("dap not available", vim.log.levels.WARN)
+		return
+	end
+	local tried = false
+	for _, cfg in ipairs(dap.configurations.python or {}) do
+		if cfg.name and cfg.name:match("pytest") then
+			dap.run(cfg)
+			tried = true
+			break
+		end
+	end
+	if not tried then
+		dap.run({ type = "python", request = "launch", program = vim.fn.expand("%:p") })
+	end
+end, { desc = "DAP run pytest or run file" })
+
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
